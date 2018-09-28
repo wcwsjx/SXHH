@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>留言建议</title>
+	<link rel="stylesheet" type="text/css" href="css/suggest.css">
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_801708_3bj206qyxgc.css">
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+</head>
+<body>
+	<!-- 导航栏 -->
+     <div  class="top">
+	       <div class="top-inner">
+				<a class="left" href="#"><img src="img/sx.png"></a>
+				<div class="right">
+					<ul>
+						<li><a href="index.html" title="网站首页">网站首页</a></li>
+						<li><a href="flower.html" title="花言花语">花言花语</a></li>
+						<li><a href="#" title="素馨动态">素馨动态</a></li>
+						<li><a href="culture.html" title="素馨花艺">素馨花艺</a></li>
+						<li class="sug">
+							<a href="#" class="sy" title="留言建议">
+							  留言建议  <i class="iconfont icon-Solid-arrow-down"></i>
+						     </a>
+						  <div class="down">
+								<ul>
+									<li><a href="#" class="get">提交留言</a></li>
+									<li><a href="#">查看留言</a></li>
+								</ul>
+							</div>
+						</li>
+						  <li><a href="about.html" title="关于素馨">关于素馨</a></li>
+						
+					</ul>
+				</div>
+		   </div>
+    </div>
+
+      
+   
+   
+    <!--中间-->
+     <h1>留言建议</h1>
+		<main>
+			<section>
+				<ul class="listL">
+					<li class="list">
+						<img src="img/head.png" alt="" />	
+						<div class="content">
+						  <h4>张三       <small>2018-09-17 17:18:28</small></h4>
+						  <p>更新有点慢</p>
+						</div>
+						
+					</li>
+				</ul>
+			</section>
+			
+				<div class="aside">
+					<input type="" name="" id="" value="" placeholder="请输入您的姓名"/>
+					<input type="" name="" id="" value="" placeholder="联系电话"/>
+					<!--maxlength:可输入的最大数字量-->
+					<textarea name="" rows="10" cols="30" maxlength="10" placeholder="您的建议"></textarea>
+					<div class="text">最多能输入100个字，现已输入<span>0</span>字</div>
+					<input type="text" name="" value="" placeholder="验证码" style="width: 195px;float: left;"><span ><img src="./img/yzm.png"></span>
+					<button>提交</button>
+				</div>
+				
+			
+		</main>
+    <!-- 底部 -->
+    <div class="footer">
+		   <div class="linksnav">
+			   	<i class="iconfont icon-wei_xing" ></i>
+			   	<i class="iconfont icon-qq" style="color: skyblue"></i>
+			   	<i class="iconfont icon-xinfeng" style="color: skyblue"></i>
+		   </div> 
+		   <p>
+		   	    <a href="#" style="width: 180px; height: 19px;">豫ICP备17021305号</a>
+				<a class="right" href="#">豫公网安备41022202000160</a> 
+		   </p>
+		   <p>联系电话 0371-62180519 15890062947</p>
+		   <p>郑州素馨花卉有限公司 版权所有 © 2017-2021</p>
+	</div> 
+
+</body>
+</html>
+<script type="text/javascript">
+	//留言建议里面的选项卡
+	    let sug=document.querySelector(".sug");
+	    console.log(sug);
+	    let down=document.querySelector(".down");
+	    console.log(down);
+	    sug.onmouseover=function(){
+	    	down.style.display="block";
+	    }
+	    sug.onmouseout=function(){
+	    	down.style.display="none";
+	    }
+	    
+	//输入框
+	let text=document.querySelector("textarea");
+	let num=document.querySelector("span");
+	let btn=document.querySelector("button");
+	let list=document.querySelector(".listL"); 
+	let input=document.querySelector("input");
+	text.oninput=function(){
+		let textnum= this.value.length;
+		num.innerHTML=textnum;
+	}
+	btn.onclick=function(){
+		if (input.value!=="" && text.value!=="" ){
+			let name=input.value;
+			let con=text.value;
+			console.log(name,con);
+			
+			let str=`<li class="list">
+							<img src="img/head.png" alt="" />	
+							<div class="content">
+								<h4>${name}</h4>
+							<p>${con}</p>
+							</div>
+							
+					</li>`;
+			console.log(str);
+			
+			list.innerHTML+=str;
+			
+			input.value="";
+			text.value="";
+			num.innerHTML=0;
+		}
+		else{
+		alert("不能为空");
+	  }
+	}
+</script>
